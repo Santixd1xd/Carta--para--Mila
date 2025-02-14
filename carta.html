@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta para Mila</title>
+  <style>
+    body {
+      background-color: #fef6e4;
+      font-family: 'Georgia', serif;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      animation: fadeIn 2s ease-in-out forwards;
+      opacity: 0;
+      transform: translateY(-20px);
+      z-index: 10;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    h1 {
+      text-align: center;
+      color: #b35d6a;
+    }
+    a {
+      color: #b35d6a;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 5s infinite ease-in;
+      opacity: 0.8;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      top: 0;
+      left: -10px;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-500px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Mi querida Mila</h1>
+    <p>Quiero empezar esta carta pidiéndote perdón, porque sé que me equivoqué y, aunque me duele, he aprendido de ello. Me gustaría rehacer lo que dejamos atrás, con más amor, comprensión y ganas de estar juntos.</p>
+    <p>Cada canción de esta playlist que creé especialmente para ti está llena de sentimientos sinceros. Cada una refleja lo que siento por ti, lo mucho que me importas y lo hermosa que eres, tanto por dentro como por fuera. He puesto todo mi cariño en cada detalle, esperando que sientas lo especial que eres.</p>
+    <p>Te pido una oportunidad para demostrarte lo que realmente significas para mí. Aunque la vida tenga altibajos, siempre serás mi razón de sonreír y mi sol en los días grises.</p>
+    <p>Te amo más de lo que las palabras pueden expresar. Siempre pensaré en ti y en lo afortunado que soy de tenerte en mi vida.</p>
+    <p><strong>🎵 Aquí está tu playlist especial, creada solo para ti:</strong> <a href="https://open.spotify.com/playlist/1MMNPZS3H3zuUat4E30R1b" target="_blank">Escuchar Playlist</a></p>
+    <p>Con mucho amor y cariño,<br><strong>Tu Santutu</strong></p>
+  </div>
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
